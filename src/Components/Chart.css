@@ -53,3 +53,7 @@
 .recharts-line {
   transition: opacity 0.3s ease;
 }
+
+.shared-chart {
+  border-left: 1px solid rgba(0, 0, 0, 0.05) !important;
+}

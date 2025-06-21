@@ -9,27 +9,26 @@ import {
   Tooltip,
   Legend,
   ResponsiveContainer,
+  Label,
 } from "recharts";
 import { csv } from "d3";
 
 const CHART_COLORS = [
   "#1565C0", // darker blue
-  "#C62828", // darker red
+  "#aec6e8", // darker red
   "#2E7D32", // darker green
   "#6A1B9A", // darker purple
 ];
 
 const LOCATIONS = [
-  { value: "dvrpc", label: "DVRPC" },
-  { value: "bucks", label: "Bucks" },
-  { value: "burlington", label: "Burlington" },
-  { value: "camden", label: "Camden" },
-  { value: "chester", label: "Chester" },
-  { value: "delaware", label: "Delaware" },
-  { value: "gloucester", label: "Gloucester" },
-  { value: "mercer", label: "Mercer" },
-  { value: "montgomery", label: "Montgomery" },
-  { value: "philadelphia", label: "Philadelphia" },
+  { value: "northshore", label: "North shore" },
+  { value: "waianae", label: "Waianae" },
+  { value: "centralOahu", label: "Central Oahu" },
+  { value: "ewa", label: "Ewa" },
+  { value: "puc", label: "PUC" },
+  { value: "EastHonolulu", label: "East Honolulu" },
+  { value: "koolauloa", label: "Koolauloa" },
+  { value: "koolaupoko", label: "Koolaupoko" },
 ];
 
 const VIEW_TYPES = [
@@ -39,18 +38,30 @@ const VIEW_TYPES = [
 
 const BusinessFormation = ({ dataPath, config }) => {
   const [data, setData] = React.useState([]);
-  const [hiddenSeries, setHiddenSeries] = React.useState(new Set());
-  const [selectedLocation, setSelectedLocation] = React.useState("dvrpc");
+  const [selectedLocation, setSelectedLocation] = React.useState("northshore");
   const [viewType, setViewType] = React.useState("total");
 
   React.useEffect(() => {
     csv(dataPath).then((csvData) => {
       const processedData = csvData.map((row) => ({
-        year: row.year,
+        year: +row.year,
         total: parseFloat(row[`${selectedLocation}_total`]) || 0,
         percentage: parseFloat(row[`${selectedLocation}_cumu_perc_chng`]) || 0,
       }));
-      setData(processedData);
+
+      const averagedData = processedData.map((d, i, arr) => {
+        const window = arr.slice(Math.max(0, i - 4), i + 1);
+        const avg = (key) =>
+          window.reduce((sum, row) => sum + row[key], 0) / window.length;
+
+        return {
+          ...d,
+          total_avg: avg("total"),
+          percentage_avg: avg("percentage"),
+        };
+      });
+
+      setData(averagedData);
     });
   }, [dataPath, selectedLocation]);
 
@@ -127,6 +138,9 @@ const BusinessFormation = ({ dataPath, config }) => {
       <div
         style={{ marginBottom: "1rem", display: "flex", alignItems: "center" }}
       >
+        <label htmlFor="geo" className="mr-2">
+          Select Geography:
+        </label>
         <select
           value={selectedLocation}
           onChange={handleLocationChange}
@@ -138,7 +152,9 @@ const BusinessFormation = ({ dataPath, config }) => {
             </option>
           ))}
         </select>
-
+        <label htmlFor="value" className="mr-2">
+          Select Value Type:
+        </label>
         <select
           value={viewType}
           onChange={handleViewTypeChange}
@@ -152,10 +168,10 @@ const BusinessFormation = ({ dataPath, config }) => {
         </select>
       </div>
 
-      <ResponsiveContainer width="90%" height={400}>
+      <ResponsiveContainer width="90%" height={500}>
         <ComposedChart
           data={data}
-          margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+          margin={{ top: 10, right: 10, left: 60, bottom: 0 }}
           style={{ backgroundColor: "white" }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#E0E0E0" fill="white" />
@@ -169,19 +185,54 @@ const BusinessFormation = ({ dataPath, config }) => {
 
           <YAxis
             yAxisId="left"
-            domain={viewType === "percentage" ? [-0.5, 3.5] : ["auto", "auto"]}
+            domain={
+              viewType === "percentage"
+                ? ["dataMin", "dataMax"]
+                : ["auto", "auto"]
+            }
             tick={{ fill: "#000000", fontSize: 12 }}
             stroke="#666666"
             tickLine={{ stroke: "#666666" }}
-            label={{
-              value:
+            tickFormatter={
+              viewType === "percentage"
+                ? (value) => `${(value * 100).toFixed(0)}%`
+                : (value) => value.toLocaleString()
+            }
+          >
+            <Label
+              value={
                 viewType === "percentage"
-                  ? "Percentage Change"
-                  : "Total Formations",
-              angle: -90,
-              position: "insideLeft",
-              offset: 10,
-            }}
+                  ? "Percent Difference from Base Year"
+                  : "Annual Business Formations"
+              }
+              angle={-90}
+              position="insideLeft"
+              offset={-30}
+              style={{ textAnchor: "middle" }}
+            />
+          </YAxis>
+
+          <YAxis
+            yAxisId="right"
+            orientation="right"
+            mirror={true}
+            hide={false}
+            includeHidden={true}
+            allowDataOverflow={true}
+            domain={
+              viewType === "percentage"
+                ? ["dataMin", "dataMax"]
+                : ["auto", "auto"]
+            }
+            tick={{ fill: "#000000", fontSize: 12 }}
+            stroke="#666666"
+            tickLine={{ stroke: "#666666" }}
+            axisLine={{ stroke: "#666666" }}
+            tickFormatter={
+              viewType === "percentage"
+                ? (value) => `${(value * 100).toFixed(0)}%`
+                : (value) => value.toLocaleString()
+            }
           />
 
           <Tooltip content={<CustomTooltip viewType={viewType} />} />
@@ -190,12 +241,22 @@ const BusinessFormation = ({ dataPath, config }) => {
           <Bar
             dataKey={viewType}
             fill={CHART_COLORS[0]}
+            name={viewType === "Annual Business Formations (Left Axis)"}
+            yAxisId="left"
+          />
+
+          <Line
+            type="monotone"
+            dataKey={viewType === "percentage" ? "percentage_avg" : "total_avg"}
+            stroke={CHART_COLORS[1]}
+            strokeWidth={2}
+            dot={{ r: 2 }}
             name={
               viewType === "percentage"
-                ? "Percentage Change"
-                : "Total Formations"
+                ? "5-year avg"
+                : "5-year avg (Right Axis)"
             }
-            yAxisId="left"
+            yAxisId="left" // ← match the bar axis
           />
         </ComposedChart>
       </ResponsiveContainer>

@@ -26,6 +26,9 @@ import TransitRidership from "./MarkdownCharts/TransitRidership/TransitRidership
 import TransitSafety from "./MarkdownCharts/TransitSafety/TransitSafety"; // Import the transit safety chart component
 import TransitSafety1 from "./MarkdownCharts/TransitSafety/TransitSafety1"; // Import the transit safety chart component
 import BusinessFormation from "./MarkdownCharts/BusinessFormationCharts/BusinessFormation"; // Import the business formation chart component
+import Education1 from "./MarkdownCharts/EducationAttainment/Education1"; // Import the education chart component
+import Education2 from "./MarkdownCharts/EducationAttainment/Education2"; // Import the second education chart component
+import Education3 from "./MarkdownCharts/EducationAttainment/Education3"; // Import the third education chart component
 
 // Update the color palette with more distinct and contrasting colors
 const CHART_COLORS = [
@@ -426,6 +429,12 @@ const Chart = ({ type, dataPath, config }) => {
         return <TransitSafety dataPath={dataPath} config={config} />; // Render the transit safety chart
       case "transitSafety1":
         return <TransitSafety1 dataPath={dataPath} config={config} />; // Render the transit safety chart 1
+      case "education1":
+        return <Education1 dataPath={dataPath} config={config} />; // Render the first education chart
+      case "education2":
+        return <Education2 dataPath={dataPath} config={config} />; // Render the second education chart
+      case "education3":
+        return <Education3 dataPath={dataPath} config={config} />; // Render the third education chart
       default:
         return null;
     }
