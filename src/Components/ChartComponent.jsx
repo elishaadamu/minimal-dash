@@ -22,6 +22,7 @@ import Education3 from "./MarkdownCharts/EducationAttainment/Education3"; // Imp
 import PopulationGrowth1 from "./MarkdownCharts/PopulationGrowth/PopulationGrowth1"; // Import the population growth chart component
 import BridgeStackedChart from "./MarkdownCharts/BridgeCharts/BridgeChart"; // Import the new chart component
 import BridgeStackedChart1 from "./MarkdownCharts/BridgeCharts/BridgeChart1";
+import GDP from "./MarkdownCharts/GDP/gdp1"; // Import the GDP chart component
 
 // Update the color palette with more distinct and contrasting colors
 const CHART_COLORS = [
@@ -413,7 +414,9 @@ const Chart = ({ type, dataPath, config }) => {
       case "education3":
         return <Education3 dataPath={dataPath} config={config} />; // Render the third education chart
       case "populationGrowth1":
-        return <PopulationGrowth1 dataPath={dataPath} config={config} />; //
+        return <PopulationGrowth1 dataPath={dataPath} config={config} />; // Render the first population growth chart
+      case "gdp":
+        return <GDP dataPath={dataPath} config={config} />; // Render the
       default:
         return null;
     }
