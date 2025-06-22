@@ -116,7 +116,12 @@ const TransitSafetyBarChart = ({ dataPath, config }) => {
               value: config.yAxis.label,
               angle: -90,
               position: "insideLeft",
-              offset: -30,
+              offset: -10,
+              style: {
+                textAnchor: "middle",
+                fill: "#000000",
+                fontSize: 16,
+              },
             }}
             tick={{ fill: "#000", fontSize: 12 }}
           />
