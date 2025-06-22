@@ -24,6 +24,7 @@ import BridgeStackedChart from "./MarkdownCharts/BridgeCharts/BridgeChart"; // I
 import BridgeStackedChart1 from "./MarkdownCharts/BridgeCharts/BridgeChart1";
 import GDP1 from "./MarkdownCharts/GDP/gdp1"; // Import the GDP chart component
 import GDP2 from "./MarkdownCharts/GDP/gdp2"; // Import the GDP chart component
+import JobGrowth from "./MarkdownCharts/JobGrowth/jobgrowth"; // Import the job growth chart component
 
 // Update the color palette with more distinct and contrasting colors
 const CHART_COLORS = [
@@ -420,6 +421,8 @@ const Chart = ({ type, dataPath, config }) => {
         return <GDP1 dataPath={dataPath} config={config} />; // Render the
       case "gdp2":
         return <GDP2 dataPath={dataPath} config={config} />; // Render the
+      case "jobgrowth":
+        return <JobGrowth dataPath={dataPath} config={config} />; // Render the
       default:
         return null;
     }

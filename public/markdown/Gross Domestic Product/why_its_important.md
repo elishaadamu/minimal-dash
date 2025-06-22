@@ -1,3 +1,5 @@
+#### Regional GDP Distribution by County
+
 chart:{
 "type": "gdp1",
 "file": "gdp_chart3.csv",
@@ -17,6 +19,8 @@ chart:{
 {"value": "koolaupoko_share", "name": "Koolaupoko"}
 ]
 }
+
+#### GDP Distribution by Industry
 
 chart:{
 "type": "gdp2",
