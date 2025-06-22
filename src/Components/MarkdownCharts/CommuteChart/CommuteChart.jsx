@@ -35,21 +35,42 @@ const INITIAL_VISIBLE_MODES = ["sov", "transit", "pool", "walk", "wfh"];
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (!active || !payload) return null;
+
   return (
     <div
       style={{
         backgroundColor: "white",
         border: "1px solid #666666",
         borderRadius: "4px",
+        boxShadow: "0 2px 4px rgba(0,0,0,0.2)",
         padding: "10px",
         fontSize: "12px",
       }}
     >
-      <p style={{ fontWeight: "bold", marginBottom: "5px" }}>{label}</p>
+      <p style={{ margin: "0 0 5px 0", fontWeight: "bold", color: "#000000" }}>
+        {label}
+      </p>
       {payload.map((entry, index) => (
-        <div key={index} style={{ color: "#000" }}>
-          <span>{entry.name}: </span>
-          <strong>{entry.value}%</strong>
+        <div
+          key={index}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginBottom: "3px",
+          }}
+        >
+          <div
+            style={{
+              width: "10px",
+              height: "10px",
+              backgroundColor: entry.color,
+              borderRadius: "2px",
+              marginRight: "5px",
+            }}
+          />
+          <span style={{ color: "#000000" }}>
+            {entry.name}: {entry.value.toFixed(1)}
+          </span>
         </div>
       ))}
     </div>
