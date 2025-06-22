@@ -34,6 +34,7 @@ import {
   DislikeOutlined,
 } from "@ant-design/icons";
 import { IoMdArrowBack } from "react-icons/io";
+import { MdUpcoming } from "react-icons/md";
 
 // Update these items based on the markdown files
 const items = [
@@ -106,11 +107,11 @@ const items = [
 
   {
     icon: <FaCalendarAlt size={40} color="#ffffff" />,
-    trendIcon: <FaChartBar size={40} color="#ffffff" />,
-    trendDetails: "More Updates Coming",
+    trendIcon: <MdUpcoming size={40} color="#ffffff" />,
+    trendDetails: "2050 Coming Soon",
     title: "2050",
     details: "",
-    markdownPath: "/markdown/2050",
+    markdownPath: "#",
   },
 ];
 

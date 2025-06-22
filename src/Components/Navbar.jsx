@@ -9,7 +9,7 @@ function Navbar() {
       {/* Remove fixed class, navbar will scroll with main content */}
       <nav className="p-2 max-w-[1280px] mx-auto">
         <div className="">
-          <div className="flex gap-10 items-center flex-wrap justify-between">
+          <div className="flex gap-10 items-center flex-wrap justify-start">
             <Link to="/" className="flex gap-1 items-center">
               <img
                 src={TPLogo}
@@ -24,7 +24,7 @@ function Navbar() {
               id="content"
               className="border text-[#008085] text-[14px] md:text-[18px] font-semibold   hover:bg-[#008085] hover:text-white py-2 px-2 rounded-sm hover:transistion duration-300 ease-in-out"
             >
-              Tri-Cities Area MPO Performance Dashboard
+              Honolulu MPO Performance Dashboard
             </button>
           </div>
         </div>
