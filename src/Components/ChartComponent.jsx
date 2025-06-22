@@ -13,18 +13,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { csv } from "d3";
-import BridgeStackedChart from "./MarkdownCharts/BridgeCharts/BridgeChart"; // Import the new chart component
-import BridgeStackedChart1 from "./MarkdownCharts/BridgeCharts/BridgeChart1";
 import CommuteChart from "./MarkdownCharts/CommuteChart/CommuteChart"; // Import the new commute chart component
-import Congestion1 from "./MarkdownCharts/CongestionCharts/CongestionChart1"; // Import the congestion chart component
-import Congestion2 from "./MarkdownCharts/CongestionCharts/CongestionChart2"; // Import the congestion chart component
-import Congestion3 from "./MarkdownCharts/CongestionCharts/CongestionChart3";
 import MilesDriven from "./MarkdownCharts/MilesDrivenCharts/MilesDrivenChart"; // Import the miles driven chart component
-import Pavement from "./MarkdownCharts/PavementChart/PavementChart"; // Import the pavement chart component
-import Transit1 from "./MarkdownCharts/TransitCharts/TransitChart1"; // Import the transit chart component
-import TransitRidership from "./MarkdownCharts/TransitRidership/TransitRidership"; // Import the transit ridership chart component
-import TransitSafety from "./MarkdownCharts/TransitSafety/TransitSafety"; // Import the transit safety chart component
-import TransitSafety1 from "./MarkdownCharts/TransitSafety/TransitSafety1"; // Import the transit safety chart component
 import BusinessFormation from "./MarkdownCharts/BusinessFormationCharts/BusinessFormation"; // Import the business formation chart component
 import Education1 from "./MarkdownCharts/EducationAttainment/Education1"; // Import the education chart component
 import Education2 from "./MarkdownCharts/EducationAttainment/Education2"; // Import the second education chart component
@@ -403,32 +393,12 @@ const Chart = ({ type, dataPath, config }) => {
           </BarChart>
         );
 
-      case "bridgeStacked":
-        return <BridgeStackedChart dataPath={dataPath} config={config} />; // Render the new chart type
-      case "bridgeStacked1":
-        return <BridgeStackedChart1 dataPath={dataPath} config={config} />; // Render the new chart type
       case "businessFormation":
         return <BusinessFormation dataPath={dataPath} config={config} />; // Render the business formation chart type
       case "commute":
         return <CommuteChart dataPath={dataPath} config={config} />; // Render the new commute chart type
-      case "congestion1":
-        return <Congestion1 dataPath={dataPath} config={config} />; // Render the congestion chart type
-      case "congestion2":
-        return <Congestion2 dataPath={dataPath} config={config} />; // Render the second congestion chart type
-      case "congestion3":
-        return <Congestion3 dataPath={dataPath} config={config} />; // Render the third congestion chart type
       case "milesdriven":
         return <MilesDriven dataPath={dataPath} config={config} />; // Render the miles driven chart
-      case "pavement":
-        return <Pavement dataPath={dataPath} config={config} />; // Render the pavement chart
-      case "transit":
-        return <Transit1 dataPath={dataPath} config={config} />; // Render the transit chart
-      case "transitRidership":
-        return <TransitRidership dataPath={dataPath} config={config} />; // Render the transit ridership chart
-      case "transitSafety":
-        return <TransitSafety dataPath={dataPath} config={config} />; // Render the transit safety chart
-      case "transitSafety1":
-        return <TransitSafety1 dataPath={dataPath} config={config} />; // Render the transit safety chart 1
       case "education1":
         return <Education1 dataPath={dataPath} config={config} />; // Render the first education chart
       case "education2":
