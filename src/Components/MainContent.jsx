@@ -194,13 +194,16 @@ function MainContent() {
     return lightBackgrounds.includes(selectedCategory) ? "#000000" : "#ffffff";
   };
 
-  // Update handleBoxClick to hide sidebar
-  const handleBoxClick = (markdownPath) => {
+  // First, modify the handleBoxClick function to prevent 2050 clicks
+  const handleBoxClick = (markdownPath, title) => {
+    if (title === "2050") return; // Prevent click for 2050
     setSelectedPath(markdownPath);
     setIsSidebarVisible(false);
   };
 
-  // Add back button handler
+  // Then update the div onClick in the render section
+  // Find this section in the return statement and modify it:
+  // Update handleBoxClick to hide sidebar
   const handleBack = () => {
     setSelectedPath(null);
     setIsSidebarVisible(true);
@@ -239,10 +242,16 @@ function MainContent() {
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-6 gap-8 w-full max-w-full">
         {items.map((item, idx) => (
           <div
-            onClick={() => handleBoxClick(item.markdownPath)}
+            onClick={() =>
+              item.title !== "2050"
+                ? handleBoxClick(item.markdownPath, item.title)
+                : null
+            }
             className={`layout-item rounded-lg shadow-md ${
               !isItemActive(item) ? "pointer-events-none opacity-50" : ""
-            } cursor-pointer`}
+            } ${
+              item.title === "2050" ? "cursor-not-allowed" : "cursor-pointer"
+            }`}
             key={idx}
           >
             <div className="flip-card-inner text-center h-56">
