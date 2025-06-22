@@ -13,12 +13,12 @@ chart:{
 "label": "Percentage of Commuters"
 },
 "locations": [
-{"value": "northshore", "label": "NorthShore"},
+{"value": "northshore", "label": "North Shore"},
 {"value": "waianae", "label": "Waianae"},
-{"value": "centraloahu", "label": "CentralOahu"},
+{"value": "centraloahu", "label": "Central Oahu"},
 {"value": "ewa", "label": "Ewa"},
 {"value": "puc", "label": "PUC"},
-{"value": "easthonolulu", "label": "EastHonolulu"},
+{"value": "easthonolulu", "label": "East Honolulu"},
 {"value": "koolauloa", "label": "Koolauloa"},
 {"value": "koolaupoko", "label": "Koolaupoko"}
 ],
