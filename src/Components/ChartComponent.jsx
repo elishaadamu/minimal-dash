@@ -33,7 +33,7 @@ const CHART_COLORS = [
   "#37474F", // darker blue grey
   "#AD1457", // darker pink
   "#00695C", // darker teal
-  "#4527A0", // darker purple
+  "#4527A0", // darker purplevfdkjgf
 ];
 
 const customLegendStyle = {
