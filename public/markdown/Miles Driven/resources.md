@@ -5,13 +5,28 @@ DVRPC’s _[Municipal Implementation Toolbox](https://www.dvrpc.org/Plan/MIT/)_ 
 - [Complete Streets](https://www.dvrpc.org/Plan/MIT/completestreets)
 - [Infill Ordinances](https://www.dvrpc.org/Plan/MIT/infillordinances)
 - [Live/Work Zoning](https://www.dvrpc.org/Plan/MIT/liveworkzoning)
-- [Mobility as a Service (MaaS)](https://www.dvrpc.org/Plan/MIT/mobilityasaservicemaas) 
-- [Multimodal Transportation Hubs and Connections](https://www.dvrpc.org/Plan/MIT/multimodaltransportationhubsandconnections) 
+- [Mobility as a Service (MaaS)](https://www.dvrpc.org/Plan/MIT/mobilityasaservicemaas)
+- [Multimodal Transportation Hubs and Connections](https://www.dvrpc.org/Plan/MIT/multimodaltransportationhubsandconnections)
 - [Neighborhood Design Codes and Ordinances](https://www.dvrpc.org/Plan/MIT/neighborhooddesigncodesandordinances)
 - [Smart Location of Public Facilities](https://www.dvrpc.org/Plan/MIT/smartlocationofpublicfacilities)
 - [Suburban Retrofits](https://www.dvrpc.org/Plan/MIT/suburbanretrofits)
 - [Tactical Urbanism and Pedestrian Plazas](https://www.dvrpc.org/Plan/MIT/tacticalurbanismandpedestrianplazas)
 - [Transit-Oriented Development (TOD) Zoning](https://www.dvrpc.org/Plan/MIT/transit-orienteddevelopmenttodzoning)
-- [Travel Demand Management (TDM)](https://www.dvrpc.org/Plan/MIT/traveldemandmanagementtdm) 
-- [Trip Reduction Ordinances](https://www.dvrpc.org/Plan/MIT/tripreductionordinances) 
+- [Travel Demand Management (TDM)](https://www.dvrpc.org/Plan/MIT/traveldemandmanagementtdm)
+- [Trip Reduction Ordinances](https://www.dvrpc.org/Plan/MIT/tripreductionordinances)
 - [Walking and Biking Encouragement Programs](https://www.dvrpc.org/Plan/MIT/walkingandbikingencouragementprograms)
+
+chart:{
+"type": "milesdriven",
+"file": "miles_driven_vmt_fk.csv",
+"locations": [
+{"value": "northshore", "label": "North Shore"},
+{"value": "waianae", "label": "Waianae"},
+{"value": "centralOahu", "label": "Central Oahu"},
+{"value": "ewa", "label": "Ewa"},
+{"value": "puc", "label": "PUC"},
+{"value": "EastHonolulu", "label": "East Honolulu"},
+{"value": "koolauloa", "label": "Koolauloa"}
+{"value": "koolaupoko", "label": "Koolaupoko"}
+]
+}

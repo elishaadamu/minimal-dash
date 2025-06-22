@@ -12,20 +12,21 @@ import {
 import * as d3 from "d3";
 
 const LOCATION_COLORS = {
-  mpo: "#1565C0", // blue
-  hopewell: "#C62828", // red
-  petersburg: "#00838F", // cyan
-  colonial_heights: "#E65100", // orange
-  chesterfield: "#2E7D32", // green
-  dinwiddie: "#6A1B9A", // purple
-  prince_george: "#F9A825", // yellow
+  northshore: "#1565C0", // blue
+  waianae: "#C62828", // red
+  centralOahu: "#00838F", // cyan
+  ewa: "#E65100", // orange
+  puc: "#2E7D32", // green
+  EastHonolulu: "#6A1B9A", // purple
+  koolauloa: "#F9A825", // yellow
+  koolaupoko: "#7B1FA2", // deep purple
 };
 
 const INITIAL_VISIBLE_LOCATIONS = [
-  "mpo",
-  "hopewell",
-  "petersburg",
-  "colonial_heights",
+  "northshore",
+  "waianae",
+  "centralOahu",
+  "ewa",
 ];
 
 const selectStyle = {
@@ -210,6 +211,11 @@ const MilesDrivenChart = ({ dataPath, config }) => {
               value: config.yAxis.label,
               angle: -90,
               position: "insideLeft",
+              style: {
+                textAnchor: "middle",
+                fill: "#000000",
+                fontSize: 14,
+              },
               offset: -40,
               fill: "#000000",
             }}

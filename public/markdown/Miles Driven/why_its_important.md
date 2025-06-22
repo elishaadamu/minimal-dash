@@ -13,13 +13,14 @@ chart:{
 "label": "Percent or Miles Reliability"
 },
 "locations": [
-{ "value": "mpo", "label": "MPO" },
-{ "value": "hopewell", "label": "Hopewell" },
-{ "value": "petersburg", "label": "Petersburg" },
-{ "value": "colonial_heights", "label": "Colonial Heights" },
-{ "value": "chesterfield", "label": "Chesterfield" },
-{ "value": "dinwiddie", "label": "Dinwiddie" },
-{ "value": "prince_george", "label": "Prince George" }
+{"value": "northshore", "label": "NorthShore"},
+{"value": "waianae", "label": "Waianae"},
+{"value": "centralOahu", "label": "CentralOahu"},
+{"value": "ewa", "label": "Ewa"},
+{"value": "puc", "label": "PUC"},
+{"value": "EastHonolulu", "label": "EastHonolulu"},
+{"value": "koolauloa", "label": "Koolauloa"},
+{"value": "koolaupoko", "label": "Koolaupoko"}
 ],
 "filters": {
 "Value": [
@@ -45,13 +46,14 @@ chart:{
 "label": "Percent or Miles Reliability"
 },
 "locations": [
-{ "value": "mpo", "label": "MPO" },
-{ "value": "hopewell", "label": "Hopewell" },
-{ "value": "petersburg", "label": "Petersburg" },
-{ "value": "colonial_heights", "label": "Colonial Heights" },
-{ "value": "chesterfield", "label": "Chesterfield" },
-{ "value": "dinwiddie", "label": "Dinwiddie" },
-{ "value": "prince_george", "label": "Prince George" }
+{"value": "northshore", "label": "NorthShore"},
+{"value": "waianae", "label": "Waianae"},
+{"value": "centralOahu", "label": "CentralOahu"},
+{"value": "ewa", "label": "Ewa"},
+{"value": "puc", "label": "PUC"},
+{"value": "EastHonolulu", "label": "EastHonolulu"},
+{"value": "koolauloa", "label": "Koolauloa"},
+{"value": "koolaupoko", "label": "Koolaupoko"}
 ],
 "filters": {
 "Value": [

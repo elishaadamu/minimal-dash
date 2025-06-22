@@ -19,6 +19,9 @@ import BusinessFormation from "./MarkdownCharts/BusinessFormationCharts/Business
 import Education1 from "./MarkdownCharts/EducationAttainment/Education1"; // Import the education chart component
 import Education2 from "./MarkdownCharts/EducationAttainment/Education2"; // Import the second education chart component
 import Education3 from "./MarkdownCharts/EducationAttainment/Education3"; // Import the third education chart component
+import PopulationGrowth1 from "./MarkdownCharts/PopulationGrowth/PopulationGrowth1"; // Import the population growth chart component
+import BridgeStackedChart from "./MarkdownCharts/BridgeCharts/BridgeChart"; // Import the new chart component
+import BridgeStackedChart1 from "./MarkdownCharts/BridgeCharts/BridgeChart1";
 
 // Update the color palette with more distinct and contrasting colors
 const CHART_COLORS = [
@@ -393,6 +396,10 @@ const Chart = ({ type, dataPath, config }) => {
           </BarChart>
         );
 
+      case "bridgeStacked":
+        return <BridgeStackedChart dataPath={dataPath} config={config} />; // Render the new chart type
+      case "bridgeStacked1":
+        return <BridgeStackedChart1 dataPath={dataPath} config={config} />; // Render the new chart type
       case "businessFormation":
         return <BusinessFormation dataPath={dataPath} config={config} />; // Render the business formation chart type
       case "commute":
@@ -405,6 +412,8 @@ const Chart = ({ type, dataPath, config }) => {
         return <Education2 dataPath={dataPath} config={config} />; // Render the second education chart
       case "education3":
         return <Education3 dataPath={dataPath} config={config} />; // Render the third education chart
+      case "populationGrowth1":
+        return <PopulationGrowth1 dataPath={dataPath} config={config} />; //
       default:
         return null;
     }
