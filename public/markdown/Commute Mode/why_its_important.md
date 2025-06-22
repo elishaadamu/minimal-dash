@@ -13,13 +13,14 @@ chart:{
 "label": "Percentage of Commuters"
 },
 "locations": [
-{"value": "mpo", "label": "Greater Philadelphia"},
-{"value": "ches", "label": "Chester County"},
-{"value": "colh", "label": "Collegeville"},
-{"value": "din", "label": "Dingmans Ferry"},
-{"value": "hope", "label": "Hopewell"},
-{"value": "pet", "label": "Peterborough"},
-{"value": "prge", "label": "Prince George"}
+{"value": "northshore", "label": "NorthShore"},
+{"value": "waianae", "label": "Waianae"},
+{"value": "centraloahu", "label": "CentralOahu"},
+{"value": "ewa", "label": "Ewa"},
+{"value": "puc", "label": "PUC"},
+{"value": "easthonolulu", "label": "EastHonolulu"},
+{"value": "koolauloa", "label": "Koolauloa"},
+{"value": "koolaupoko", "label": "Koolaupoko"}
 ],
 "transportModes": {
 "options": [
