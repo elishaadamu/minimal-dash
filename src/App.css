@@ -53,6 +53,8 @@
 }
 
 .flip-card-back {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .layout-item:hover .flip-card-front {
@@ -62,6 +64,7 @@
 
 .layout-item:hover .flip-card-back {
   opacity: 1;
+  visibility: visible;
 }
 
 label {
