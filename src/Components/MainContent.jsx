@@ -40,12 +40,16 @@ import { MdUpcoming } from "react-icons/md";
 const items = [
   {
     icon: <GiSuspensionBridge size={40} color="#ffffff" />,
+    trendIcon: <SmileOutlined size={40} color="#ffffff" />,
+    trendDetails: "62% drop",
     title: "Bridge Conditions",
     details: "in deficient bridge deck area",
     markdownPath: "/markdown/Bridge Conditions",
   },
   {
     icon: <FaBuilding size={40} color="#ffffff" />,
+    trendIcon: <SmileOutlined size={40} color="#ffffff" />,
+    trendDetails: "95% growth",
     title: "Business Formations",
     details: "in annual applications",
     markdownPath: "/markdown/Business Formations",
@@ -53,30 +57,40 @@ const items = [
 
   {
     icon: <FaBus size={40} color="#ffffff" />,
+    trendIcon: <MehOutlined size={40} color="#ffffff" />,
+    trendDetails: "10.8% fewer",
     title: "Commute Mode",
     details: "residents drive alone to work",
     markdownPath: "/markdown/Commute Mode",
   },
   {
     icon: <FaGraduationCap size={40} color="#ffffff" />,
+    trendIcon: <LikeOutlined size={40} color="#ffffff" />,
+    trendDetails: "10% rise",
     title: "Educational Attainment",
     details: "in population over 25 with high school diploma",
     markdownPath: "/markdown/Educational Attainment",
   },
   {
     icon: <FaChartLine size={40} color="#ffffff" />,
+    trendIcon: <MehOutlined size={40} color="#ffffff" />,
+    trendDetails: "1.7% gain",
     title: "Gross Domestic Product",
     details: "annual average GDP growth",
     markdownPath: "/markdown/Gross Domestic Product",
   },
   {
     icon: <FaBriefcase size={40} color="#ffffff" />,
+    trendIcon: <SmileOutlined size={40} color="#ffffff" />,
+    trendDetails: "25% increase",
     title: "Job Growth",
     details: "in jobs",
     markdownPath: "/markdown/Job Growth",
   },
   {
     icon: <FaUsers size={40} color="#ffffff" />,
+    trendIcon: <MehOutlined size={40} color="#ffffff" />,
+    trendDetails: "0.5% decrease",
     title: "Miles Driven",
     details: "in daily miles driven per person",
     markdownPath: "/markdown/Miles Driven",
@@ -84,6 +98,8 @@ const items = [
 
   {
     icon: <FaUsers size={40} color="#ffffff" />,
+    trendIcon: <LikeOutlined size={40} color="#ffffff" />,
+    trendDetails: "10.6% increase",
     title: "Population Growth",
     details: "in population",
     markdownPath: "/markdown/Population Growth",
@@ -91,6 +107,8 @@ const items = [
 
   {
     icon: <FaCalendarAlt size={40} color="#ffffff" />,
+    trendIcon: <MdUpcoming size={40} color="#ffffff" />,
+    trendDetails: "2050 Coming Soon",
     title: "2050",
     details: "",
     markdownPath: "#",
@@ -259,7 +277,13 @@ function MainContent() {
                   color: getTextAndIconColor(item.title),
                 }}
               >
-                <div className="mt-4 text-lg font-bold">{item.title}</div>
+                {React.cloneElement(item.trendIcon, {
+                  style: {
+                    fontSize: "40px",
+                    color: getTextAndIconColor(item.title),
+                  },
+                })}
+                <span className="font-bold">{item.trendDetails}</span>
                 <div className="mt-4 text-base text-center">{item.details}</div>
               </div>
             </div>
